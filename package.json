@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+ 
+
   "scripts": {
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack-cli serve --mode development"
   },
   "keywords": [],
   "author": "Darko Avramovski",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "bootstrap": "^4.6.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",
@@ -19,13 +22,14 @@
   "devDependencies": {
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.13.10",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.12.13",
     "babel-loader": "^8.2.2",
     "css-loader": "^1.0.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.19.1",
-    "webpack-cli": "^3.1.1",
+    "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   }
 }

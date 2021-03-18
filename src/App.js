@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/navbar/Navbar ';
 import { hot } from "react-hot-loader";
 import { Container, Col, Row, Button, Form, Tabs, Tab } from 'react-bootstrap';
+// import { stockData } from "./data/location.js";
+
 
 const App = () => {
+
+    const [data, setData] = useState([]);
+    const getData = () => {
+        fetch("./data.json",
+            {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'method': 'get',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                }
+            }
+        )
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                setData(myJson)
+            });
+    }
+    useEffect(() => {
+        getData()
+    }, [])
+
 
     return (
         <div className="App">
@@ -41,11 +67,11 @@ const App = () => {
                         <Form.Group controlId="exampleForm.SelectCustom">
                             <Form.Label>Bucket Location:</Form.Label>
                             <Form.Control as="select" custom>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                {data.map((d, i) => {
+                                    return (
+                                        <option key={i}>{d.location}</option>
+                                    )
+                                })}
                             </Form.Control>
                         </Form.Group>
                     </Col>
