@@ -6,7 +6,7 @@ const Header = () => {
 
         <Navbar className="navbar">
             <Container>
-                <Navbar.Brand href="#home">Secure Cloud Storage</Navbar.Brand>
+                <Navbar.Brand href="/">Secure Cloud Storage</Navbar.Brand>
             </Container>
         </Navbar>
 

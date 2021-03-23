@@ -2,11 +2,14 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Button, Modal, Container, Col, Row, Form } from "react-bootstrap";
 import { GlobalContext } from "../context/GlobalState";
 import { v4 as uuidv4 } from 'uuid';
-import { useHistory } from "react-router-dom";
+
 
 
 const AddBucket = () => {
-    const history = useHistory();
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const [data, setData] = useState([]);
     // fetch all location from json file
     const getData = () => {
@@ -46,18 +49,29 @@ const AddBucket = () => {
     const onSubmit = () => {
         const newBucket = {
             id: uuidv4(),
-            name,
-            location,
+            name: name,
+            location: location
         }
         addBucket(newBucket);
-        history.push("/")
     }
     return (
-        <div>
-            <Container className="mt-5">
-                <Row>
-                    <Col>
-                        <Form onSubmit={onSubmit} >
+        <>
+            <Button variant="primary" onClick={handleShow}>
+                Create new bucket
+            </Button>
+
+            <Modal show={show} onHide={handleClose} size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered>
+                <Form onSubmit={onSubmit} >
+
+                    <Modal.Header closeButton>
+                        <Modal.Title>Add new bucket</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+
+                        <Container>
+
                             <Row className="head_bucket">
                                 <Col sm={6}>
                                     <Form.Group controlId="exampleForm.ControlInput1">
@@ -82,19 +96,23 @@ const AddBucket = () => {
                                             })}
                                         </Form.Control>
                                     </Form.Group>
-                                    <Button variant="primary" type="submit">Save Bucket</Button>{' '}
                                 </Col>
+
                             </Row>
-                        </Form>
+                        </Container>
 
-                    </Col>
-                </Row>
-            </Container>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Cancel
+                    </Button>
+                        <Button variant="primary" type="submit">Save Bucket</Button>{' '}
 
+                    </Modal.Footer>
+                </Form>
 
-
-        </div>
-
+            </Modal>
+        </>
     );
 }
 

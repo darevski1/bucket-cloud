@@ -1,17 +1,17 @@
 [
   {
     "id": 1,
-    "location": "Skopje",
-    "uid": "c412409a-882e-11eb-8dcd-0242ac130003"
-  }, 
+    "name": "Video story",
+    "location": "Skopje"
+  },
   {
     "id": 2,
-    "location": "Ljubljana",
-    "uid": "ccbfda90-882e-11eb-8dcd-0242ac130003"
-  }, 
+    "name": "I love react",
+    "location": "Kranj"
+  },
   {
     "id": 3,
-    "location": "Kranj",
-    "uid": "d3795de8-882e-11eb-8dcd-0242ac130003"
+    "name": "Media box",
+    "location": "Ljubljana"
   }
 ]
