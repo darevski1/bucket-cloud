@@ -16,7 +16,7 @@ const App = () => {
                 <Switch>
                     <Route exact path="/" component={Bucket} />
                     <Route path="/add-new" component={AddBucket} />
-                    <Route path="/bucket/:bucketID" component={viewBucket} />
+                    <Route path="/bucket/:id" component={viewBucket} />
                 </Switch>
             </GlobalProvider>
         </div >

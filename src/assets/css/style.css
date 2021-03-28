@@ -46,3 +46,27 @@ margin: 0;
 .mb-10 {
   margin-bottom:10px;
 }
+.title-heading {
+  color: rgba(255, 255, 255, 0.9);
+}
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+.flex-column {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.main-heading {
+  border: 1px solid #d8d8d8;
+  padding: 12px;;
+}
+.bold {
+  font-weight: bold;
+}
+.ps-2 {
+  padding: 20px;
+}
+.ml-5 {margin-left: 15px;}

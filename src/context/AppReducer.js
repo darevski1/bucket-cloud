@@ -1,7 +1,12 @@
 export default (state, action) => {
     switch (action.type) {
-
         case "REMOVE_BUCKET":
+            return {
+                buckets: state.buckets.filter(bucket => {
+                    return bucket.id !== action.payload
+                })
+            }
+        case "REMOVE_BUCKET_ITEMS":
             return {
                 buckets: state.buckets.filter(bucket => {
                     return bucket.id !== action.payload
@@ -13,7 +18,7 @@ export default (state, action) => {
             }
         case "VIEW_BUCKET":
             const viewBucket = action.payload;
-            const viewBuckets = state.buckets.map(bucket => {
+            const viewBuckets = state.buckets.filter(bucket => {
                 if (bucket.id === viewBucket.id) {
                     return viewBucket;
                 }
@@ -23,7 +28,9 @@ export default (state, action) => {
                 ...state,
                 buckets: viewBuckets
             }
+
         default:
             return state
     }
+
 }

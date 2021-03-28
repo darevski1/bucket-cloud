@@ -5,8 +5,7 @@ import { GlobalContext } from "../context/GlobalState";
 
 
 const Bucket = () => {
-    const { buckets } = useContext(GlobalContext);
-    console.log(buckets)
+    const { buckets, removeBucket } = useContext(GlobalContext);
     return (
         <Container>
             <Row className="heading">
@@ -23,13 +22,17 @@ const Bucket = () => {
             </Row>
             {buckets.map(bucket => (
                 <Row className="bucket_list" key={bucket.id}>
-                    <Col sm={8}>
+                    <Col sm={6}>
                         <Link to={`/bucket/${bucket.id}`}>
                             {bucket.name}
                         </Link>
                     </Col>
                     <Col sm={4}>
                         {bucket.location}
+                    </Col>
+                    <Col sm={2}>
+                        <Button onClick={() => removeBucket(bucket.id)} variant="success" type="submit">Delete</Button>{' '}
+
                     </Col>
                 </Row>
             ))
